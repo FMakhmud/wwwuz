@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework import generics
 from www.models import Direction, Site, SiteLog
@@ -23,3 +24,4 @@ class SiteLogRetrieveAPIView(generics.GenericAPIView):
         serializer = self.get_serializer(instance)
         instance.update_visitor_count()
         return Response(serializer.data)
+
