@@ -41,11 +41,11 @@ class SiteLog(BaseModel):
         Site, on_delete=models.CASCADE, related_name='logs')
     visitor_count = models.IntegerField(default=0)
 
-    @classmethod
-    def is_available(cls, site, day):
-        if cls.objects.filter(site=site, created_at__date=day).exists():
-            return True
-        return False
+    # @classmethod
+    # def is_available(cls, site, day):
+    #     if cls.objects.filter(site=site, created_at__date=day).exists():
+    #         return True
+    #     return False
 
     def update_visitor_count(self):
         self.visitor_count += 1
